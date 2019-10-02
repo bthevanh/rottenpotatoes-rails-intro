@@ -12,6 +12,7 @@ class MoviesController < ApplicationController
   end
 
   def index
+    @all_ratings = ['G','PG', 'PG-13', 'R']
     @order = 0
     if @order ==0
       @movies = Movie.order(:title)
