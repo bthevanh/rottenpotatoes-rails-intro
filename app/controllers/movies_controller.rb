@@ -12,13 +12,7 @@ class MoviesController < ApplicationController
   end
 
   def index
-    @all_ratings = ['G','PG', 'PG-13', 'R']
-    @order = 0
-    if @order ==0
-      @movies = Movie.order(:title)
-    else
-      @movies = Movie.all
-    end
+    @movies = Movie.all
     
   end
 
@@ -27,12 +21,12 @@ class MoviesController < ApplicationController
   end
   
   def nameIndex
-    @movies = Movie.order(:title)
+    Movie.order(:title)
     redirect_to movies_path
   end
   
   def dateIndex
-    @movies = Movie.order(:release_date)
+    Movie.order(:release_date)
     redirect_to movies_path
   end
   
