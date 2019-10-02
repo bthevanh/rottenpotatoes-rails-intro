@@ -4,8 +4,8 @@
 %table#movies.table.table-striped.col-md-12
   %thead
     %tr
-      %th Movie Title
-      %th Rating
+      %th = link_to 'Movie Title', {:controller => "movies",   :action => "nameIndex"}
+      %th = link_to 'Rating',{:controller => "movies",   :action => "ratingIndex"}
       %th Release Date
       %th More Info
   %tbody
