@@ -1,5 +1,7 @@
 class MoviesController < ApplicationController
 
+  @order = 0
+  
   def movie_params
     params.require(:movie).permit(:title, :rating, :description, :release_date)
   end
@@ -12,6 +14,14 @@ class MoviesController < ApplicationController
 
   def index
     @movies = Movie.all
+    
+    if @order ==1
+      @movies = Movie.order(:title)
+    end
+    
+    if @order ==2
+      @movies = Movie.order(:release_date)
+    end
   end
 
   def new
@@ -19,12 +29,12 @@ class MoviesController < ApplicationController
   end
   
   def nameIndex
-    @movies = Movie.all(:order => "title ASC")
+    @order = 1
     redirect_to movies_path
   end
   
   def dateIndex
-    @movies = Movie.all(:order => "release_date ASC")
+    @order = 2
     redirect_to movies_path
   end
   
