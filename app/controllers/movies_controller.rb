@@ -14,6 +14,7 @@ class MoviesController < ApplicationController
 
   def index
     @movies = Movie.all
+    @movies = Movie.order(:title)
     
     if @order ==1
       @movies = Movie.order(:title)
