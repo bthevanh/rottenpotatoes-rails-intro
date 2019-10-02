@@ -17,10 +17,9 @@ class MoviesController < ApplicationController
     
     if @order ==1
       @movies = Movie.order(:title)
-    end
-    
-    if @order ==2
+    elsif @order ==2
       @movies = Movie.order(:release_date)
+    
     end
   end
 
