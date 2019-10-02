@@ -11,9 +11,9 @@
 %table#movies.table.table-striped.col-md-12
   %thead
     %tr
-      %th= link_to 'Movie Title', movie_path(:sort_param => "title"), :action =>"index"
+      %th= link_to 'Movie Title', movie_path(:sort_param => "title"), :action =>'index'
       %th Rating
-      %th= link_to 'Release Date', movie_path(:sort_param => "release_date"), :action =>"index"
+      %th= link_to 'Release Date', movie_path(:sort_param => "release_date"), :action =>'index'
       %th More Info
   %tbody
     - @movies.each do |movie|
