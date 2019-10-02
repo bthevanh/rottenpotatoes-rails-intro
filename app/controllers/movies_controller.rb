@@ -12,11 +12,13 @@ class MoviesController < ApplicationController
   end
 
   def index
+    @order = 0
     if @order ==0
+      @movies = Movie.order(:title)
     else
       @movies = Movie.all
     end
-    @order = 0
+    
   end
 
   def new
@@ -24,7 +26,7 @@ class MoviesController < ApplicationController
   end
   
   def nameIndex
-     @movies = Movie.order(:title)
+    @movies = Movie.order(:title)
     redirect_to movies_path
   end
   
