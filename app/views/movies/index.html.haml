@@ -12,8 +12,8 @@
   %thead
     %tr
       %th= link_to 'Movie Title', "/nameIndex"
-      %th= link_to 'Rating', "/dateIndex"
-      %th Release Date
+      %th= Rating
+      %th link_to 'Release Date', "/dateIndex"
       %th More Info
   %tbody
     - @movies.each do |movie|
