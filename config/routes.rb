@@ -16,9 +16,6 @@ Rails.application.routes.draw do
 
   resources :movies
   
-  get 'nameIndex', to: 'movies#nameIndex', as: 'nameIndex'
-  get 'dateIndex', to: 'movies#dateIndex', as: 'dateIndex'
-  
   
   # Example resource route with options:
   #   resources :products do

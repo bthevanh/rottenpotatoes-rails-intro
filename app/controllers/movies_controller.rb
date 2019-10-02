@@ -12,7 +12,7 @@ class MoviesController < ApplicationController
   end
 
   def index
-    @movies = Movie.all
+    @movies = Movie.order("#{params[:sort_param]} ASC")
     
   end
 
@@ -20,16 +20,7 @@ class MoviesController < ApplicationController
     # default: render 'new' template
   end
   
-  def nameIndex
-    Movie.order(:title)
-    redirect_to movies_path
-  end
-  
-  def dateIndex
-    Movie.order(:release_date)
-    redirect_to movies_path
-  end
-  
+
   def create
     @movie = Movie.create!(movie_params)
     flash[:notice] = "#{@movie.title} was successfully created."
