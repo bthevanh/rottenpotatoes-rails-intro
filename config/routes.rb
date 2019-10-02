@@ -16,8 +16,8 @@ Rails.application.routes.draw do
 
   resources :movies
   
-  get 'movies/nameIndex' => 'movies#nameIndex'
-  get 'movies/dateIndex' => 'movies#dateIndex'
+  get 'movies/nameIndex' => 'movies_controller#nameIndex'
+  get 'movies/dateIndex' => 'movies_controller#dateIndex'
   
   
   # Example resource route with options:
