@@ -4,8 +4,8 @@
 %table#movies.table.table-striped.col-md-12
   %thead
     %tr
-      %th= link_to 'Movie Title', "/movies/nameIndex"
-      %th= link_to 'Rating', "/movies/dateIndex"
+      %th= link_to 'Movie Title', "/movies/nameIndex", method: => :get
+      %th= link_to 'Rating', "/movies/dateIndex", method: => :get
       %th Release Date
       %th More Info
   %tbody
