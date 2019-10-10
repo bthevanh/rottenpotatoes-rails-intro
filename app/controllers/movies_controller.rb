@@ -14,7 +14,8 @@ class MoviesController < ApplicationController
   def index
     @movies = Movie.all if @movies.nil? || @movies.empty?
     @all_ratings = ['G','PG','PG-13','R']
-    @movies = @movies.order(params[:sort])
+    @sort_params = params[:sort]
+    @movies = @movies.order(@sort_params)
   end
 
   def new
@@ -25,7 +26,7 @@ class MoviesController < ApplicationController
   def create
     @movie = Movie.create!(movie_params)
     flash[:notice] = "#{@movie.title} was successfully created."
-    @movies = @movies.order(params[:sort])
+    @movies = @movies.order(@sort_params)
     redirect_to movies_path
   end
 
@@ -44,12 +45,13 @@ class MoviesController < ApplicationController
     @movie = Movie.find(params[:id])
     @movie.destroy
     flash[:notice] = "Movie '#{@movie.title}' deleted."
-    @movies = @movies.order(params[:sort])
+    @movies = @movies.order(@sort_params)
     redirect_to movies_path
   end
   
   def ratings
-    params[:task_id]
+    ratings = params[:ratings]
+    
     redirect_to movies_path
   end
 
