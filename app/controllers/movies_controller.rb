@@ -51,6 +51,7 @@ class MoviesController < ApplicationController
   
   def ratings
     ratings = params[:ratings]
+    @movies.reject{ |movie| !ratings.include? movie[:rating] }
     
     redirect_to movies_path
   end
