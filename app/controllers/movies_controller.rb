@@ -16,7 +16,7 @@ class MoviesController < ApplicationController
     @all_ratings = ['G','PG','PG-13','R']
     
     @movies = @movies.order(@sort_params)
-    @sort_params = params[:sort] if !params[:sort].nil? || !params[:sort].empty?
+    @sort_params = params[:sort] if !params[:sort].nil?
   end
 
   def new
